@@ -1,4 +1,3 @@
-import { FunctionComponent, FunctionComponentElement } from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h1`
@@ -6,6 +5,8 @@ const Title = styled.h1`
   font-size: 50px;
 `
 
-export default function Home(): FunctionComponentElement<FunctionComponent> {
+const Home: React.FC = () => {
   return <Title>My page</Title>
 }
+
+export default Home
