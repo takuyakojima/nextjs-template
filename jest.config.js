@@ -1,17 +1,25 @@
 module.exports = {
-  roots: ['<rootDir>/src'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
-  testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleDirectories: ['node_modules', 'src'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'babel-jest'
+    '^.+\\.(ts|tsx)$': 'ts-jest'
   },
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.jest.json'
+    }
+  },
+  testMatch: ['<rootDir>/src/tests/**/*.test.(ts|tsx)'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname'
   ],
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js'
+    '\\.(jpg|jpeg|png|gif|ttf|eot|svg|png)$':
+      '<rootDir>/src/tests/__mocks__/fileMock.js'
   }
 }

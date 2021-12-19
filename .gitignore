@@ -23,6 +23,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.tsbuildinfo
 
 # local env files
 .env.local
@@ -32,3 +33,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# pathpida
+$path.ts
+
+# VSCode
+.vscode/settings.json
