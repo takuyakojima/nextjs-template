@@ -1,15 +1,14 @@
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleDirectories: ['node_modules', 'src'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
-  },
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.jest.json'
-    }
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.jest.json'
+      }
+    ]
   },
   testMatch: ['<rootDir>/src/tests/**/*.test.(ts|tsx)'],
   watchPlugins: [
